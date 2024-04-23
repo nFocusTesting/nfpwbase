@@ -5,8 +5,10 @@ export default tseslint.config(
   eslint.configs.recommended,
   ...tseslint.configs.recommendedTypeChecked,
   {
-    ignores: [".prettierrc.config.js"],
+    files: ['**/*.ts'],
+    ignores: ["*.config.js", './node_modules', './playwright-report', 'test-results'],
     languageOptions: {
+      globals: {},
       parserOptions: {
         project: true,
         tsconfigRootDir: import.meta.dirname,
