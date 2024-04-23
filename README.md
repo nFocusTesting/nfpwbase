@@ -4,7 +4,7 @@ A repo to decide on informal standards for new Playwright projects created by nF
 ## Install
 ### npm modules
 ```bash
-npm install -D @playwright/test @types/node @eslint/js@8.57.0 eslint@8.57.0 typescript typescript-eslint
+npm install -D @playwright/test @types/node @eslint/js@8.57.0 eslint@8.57.0 typescript@5.4.5 typescript-eslint
 ```
 ### VSCode extensions
 - [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
@@ -56,7 +56,23 @@ you can write
 import Homepage from '@pages/Homepage'
 ```
 
-## Folder Structure Index.ts
+## Folder Structure 
+
+### `components`
+Somewhere to store Component Object Models (COMs)
+### `enums`
+Somewhere to store Enumerated objects (enums)
+### `fixtures`
+Somewhere to store fixtures
+### `models`
+Somewhere to store data models, interfaces, types
+### `pages`
+Somewhere to store Page Object Models (POMs)
+### `utils`
+Somewhere to store extra files such as helper functions
+
+---
+### `index.ts`
 Say you have the following pages folder structure:
 ```
 pages
@@ -64,7 +80,7 @@ pages
  ┣ AccountOrders.ts
  ...
 ```
-Normally you'd have to import `Account.ts` and `AccountOrders.ts` files (using path syntax) as below:
+Normally you'd have to import `Account.ts` and `AccountOrders.ts` files (using path alias syntax) as below:
 ```js
 import Account from '@pages/Account.ts'
 import AccountOrders from '@pages/AccountOrders.ts'
