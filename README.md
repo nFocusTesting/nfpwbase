@@ -96,7 +96,9 @@ These extensions are required to allow VSCode to interact with the npm modules i
 - [Playwright](https://marketplace.visualstudio.com/items?itemName=ms-playwright.playwright)
   - Recommend turning off the 'Show browser' option in the Playwright panel in the 'Testing' tab
 - [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
-
+  - You will need to set Prettier as the default `*.ts` formatter. This can be done by going to the VSCode settings UI and searching for `@id:editor.defaultFormatter @lang:typescript`.
+  - To initiate formatting you can use `shift` + `alt` + `F`.
+  - Alternatively search for `editor.formatOnSave` inside the Settings UI and check the box and it will then format the file whenever you press Save or `ctrl` + `S`
 
 ## Files
 
