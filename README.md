@@ -56,7 +56,6 @@ A repo to decide on informal standards for new Playwright projects created by nF
 5. Click 'Download ZIP'
 6. Unzip the project
 7. Copy files from downloaded project folder into cloned directory
-   - Do not copy .git folder if it is visible
 8. Commit new files to repo and push back to server
 9. Run `npm install`
 10. Close VSCode and reopen to apply new settings
@@ -115,6 +114,7 @@ Use the link above to find new rules.\
 Use `.prettier.config.js` for stylistic rules.\
 The following rules have been implemented.
 
+- `"@typescript-eslint/no-floating-promises": ["error"]`
 - `"@typescript-eslint/restrict-template-expressions": "off"`
 - `"@typescript-eslint/no-base-to-string": ["warn", { ignoredTypeNames: ["Locator", "Date"] }]`
 
@@ -155,40 +155,65 @@ import Homepage from '@pages/Homepage'
 ## Folder Structure 
 
 ### `components`
-Somewhere to store Component Object Models (COMs)
+**Somewhere to store Component Object Models (COMs)**
+
+By default, this folder contains a baseComponent POM which is already in the `index.ts` file.
+
 ### `enums`
-Somewhere to store Enumerated objects (enums)
+**Somewhere to store Enumerated objects (enums)**
+
 ### `fixtures`
-Somewhere to store fixtures
+**Somewhere to store fixtures**
+
+By default this comes with three files: `combined.ts`, `data.ts`, and `pages.ts`. 
+
+`pages.ts` imports `test` from `data.ts` to allow you to use test data inside your page fixtures.
+
+`combined.ts` is the file to import into your `*.spec.ts` files as this is the end point of all the fixtures. It uses the `mergeTest` and `mergeExpect` functions from Playwright so you can have multiple branches, i.e. an admin branch and a user branch each with their own data.
+
+An example import into a spec file would be:
+```ts
+import { test, expect } from '@fixtures/combined'
+```
+
 ### `models`
-Somewhere to store data models, interfaces, types
+**Somewhere to store data models, interfaces, types**
+
 ### `pages`
-Somewhere to store Page Object Models (POMs)
+**Somewhere to store Page Object Models (POMs)**
+
+By default, this folder contains a basePage POM which is already in the `index.ts` file.
+
 ### `utils`
-Somewhere to store extra files such as helper functions
+**Somewhere to store extra files such as helper functions**
 
 ---
 ### `index.ts`
+Some of the folders (components, enums, models, and pages) contain an `index.ts` file. This can be used to simiplify imports into your `*.spec.ts` files. This section details how to use it.
+
 Say you have the following pages folder structure:
 ```
 pages
  ┣ Account.ts
  ┣ AccountOrders.ts
+ ┣ Checkout.ts
  ...
 ```
 Normally you'd have to import `Account.ts` and `AccountOrders.ts` files (using path alias syntax) as below:
 ```js
 import Account from '@pages/Account.ts'
 import AccountOrders from '@pages/AccountOrders.ts'
+import Chkout from '@pages/Checkout.ts'
 ```
 
 If you create an `index.ts` inside the `pages` folder with the following:
 ```ts
 export { default as Account } from "./Account"; // If default export
 export { AccountOrders } from "./AccountOrders"; // If named export
+export { Chkout as Checkout } from "./Checkout"; // If alt named export
 ...
 ```
-You could change tsconfig.json from
+You could then change tsconfig.json from
 ```json
 "@pages/*": ["pages/*"],
 ```
@@ -196,9 +221,9 @@ to
 ```json
 "@pages": ["pages/index"],
 ```
-and then import `Account.ts` and `AccountOrders.ts` using
+and then import `Account.ts`, `AccountOrders.ts` and `Checkout.ts` using
 ```ts
-import { Account, AccountOrders } from '@pages'
+import { Account, AccountOrders, Checkout } from '@pages'
 ```
 
 ## Release Notes
