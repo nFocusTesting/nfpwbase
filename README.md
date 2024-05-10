@@ -1,6 +1,36 @@
 # nFocus Playwright base configuration project
 A repo to decide on informal standards for new Playwright projects created by nFocus SDETs
 
+## Contents
+- [nFocus Playwright base configuration project](#nfocus-playwright-base-configuration-project)
+  - [Contents](#contents)
+  - [Using this Repo Template](#using-this-repo-template)
+    - [Using GitHub](#using-github)
+    - [Using alternative Git repository](#using-alternative-git-repository)
+  - [Install into existing project](#install-into-existing-project)
+    - [npm modules](#npm-modules)
+    - [Files](#files)
+  - [VSCode extensions](#vscode-extensions)
+  - [Files](#files-1)
+    - [`eslint.config.js`](#eslintconfigjs)
+      - [Rules Documentation](#rules-documentation)
+    - [`.prettier.config.js`](#prettierconfigjs)
+      - [Rules Documentation](#rules-documentation-1)
+    - [`playwright.config.ts`](#playwrightconfigts)
+    - [`tsconfig.json`](#tsconfigjson)
+      - [`baseUrl`](#baseurl)
+      - [`paths`](#paths)
+  - [Folder Structure](#folder-structure)
+    - [`components`](#components)
+    - [`enums`](#enums)
+    - [`fixtures`](#fixtures)
+    - [`models`](#models)
+    - [`pages`](#pages)
+    - [`utils`](#utils)
+    - [`index.ts`](#indexts)
+  - [Release Notes](#release-notes)
+    - [Version 1.0](#version-10)
+
 
 ## Using this Repo Template
 ### Using GitHub
@@ -19,12 +49,12 @@ A repo to decide on informal standards for new Playwright projects created by nF
 
 ### Using alternative Git repository
 
-1. Open this repo on [Github](http://www.github.com/nfocustesting/nfpwbase)
-2. Click on '<> Code'
-3. Click 'Download ZIP'
-4. Unzip the project
-5. Create a new repo with your host of choice
-6. Clone new repo to your local machine
+1. Create a new repo with your host of choice
+2. Clone new repo to your local machine
+3. Open this repo on [Github](http://www.github.com/nfocustesting/nfpwbase)
+4. Click on '<> Code'
+5. Click 'Download ZIP'
+6. Unzip the project
 7. Copy files from downloaded project folder into cloned directory
    - Do not copy .git folder if it is visible
 8. Commit new files to repo and push back to server
@@ -78,7 +108,7 @@ These extensions are required to allow VSCode to interact with the npm modules i
 
 ---
 
-### <a name="#eslintconfig"></a>`eslint.config.js`
+### `eslint.config.js`
 Uses the `typescript-eslint` package to allow `ESLint` to lint Typescript files. 
 #### [Rules Documentation](https://typescript-eslint.io/rules)
 Use the link above to find new rules.\
@@ -89,7 +119,7 @@ The following rules have been implemented.
 - `"@typescript-eslint/no-base-to-string": ["warn", { ignoredTypeNames: ["Locator", "Date"] }]`
 
 ---
-### <a name="#prettierconfig"></a>`.prettier.config.js`
+### `.prettier.config.js`
 Used by the Prettier VSCode plugin to have consistant styling across all js/ts files.
 
 #### [Rules Documentation](https://prettier.io/docs/en/options)
@@ -100,11 +130,11 @@ The following rules have been implemented.
 - `experimentalTernaries: true`
 
 ---
-### <a name="#playwrightconfig"></a>`playwright.config.ts`
+### `playwright.config.ts`
 [Documentation](https://playwright.dev/docs/test-configuration)
 
 ---
-### <a name="#tsconfig"></a>`tsconfig.json`
+### `tsconfig.json`
 [Documentation](https://www.typescriptlang.org/tsconfig)
 
 #### `baseUrl`
@@ -170,3 +200,7 @@ and then import `Account.ts` and `AccountOrders.ts` using
 ```ts
 import { Account, AccountOrders } from '@pages'
 ```
+
+## Release Notes
+### Version 1.0
+ - Initial Release.
