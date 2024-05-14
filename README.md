@@ -17,9 +17,11 @@ A repo to decide on informal standards for new Playwright projects created by nF
     - [`.prettier.config.js`](#prettierconfigjs)
       - [Rules Documentation](#rules-documentation-1)
     - [`playwright.config.ts`](#playwrightconfigts)
+      - [Documentation](#documentation)
     - [`tsconfig.json`](#tsconfigjson)
+      - [Documentation](#documentation-1)
       - [`baseUrl`](#baseurl)
-      - [`paths`](#paths)
+      - [`paths` (Path Alias)](#paths-path-alias)
   - [Folder Structure](#folder-structure)
     - [`components`](#components)
     - [`enums`](#enums)
@@ -28,9 +30,13 @@ A repo to decide on informal standards for new Playwright projects created by nF
     - [`pages`](#pages)
     - [`utils`](#utils)
     - [`index.ts` (Barrel imports)](#indexts-barrel-imports)
+  - [Code Snippets](#code-snippets)
   - [Release Notes](#release-notes)
     - [Version 1.0](#version-10)
+    - [Version 1.1](#version-11)
 
+
+<div style="text-align: right"><a href="#contents">Top ⬆️</a></div>
 
 ## Using this Repo Template
 ### Using GitHub
@@ -59,6 +65,8 @@ A repo to decide on informal standards for new Playwright projects created by nF
 8. Commit new files to repo and push back to server
 9. Run `npm install`
 10. Close VSCode and reopen to apply new settings
+
+<div style="text-align: right"><a href="#contents">Top ⬆️</a></div>
 
 ## Install into existing project
 \*Only do this with permission from the team leader.\*
@@ -89,6 +97,8 @@ to the root of the JSON object.
 
 You will need to restart VSCode for all the changes to be made to the editor.
 
+<div style="text-align: right"><a href="#contents">Top ⬆️</a></div>
+
 ## VSCode extensions
 These extensions are required to allow VSCode to interact with the npm modules installed.
 - [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
@@ -99,6 +109,8 @@ These extensions are required to allow VSCode to interact with the npm modules i
   - You will need to set Prettier as the default `*.ts` formatter. This can be done by going to the VSCode settings UI and searching for `@id:editor.defaultFormatter @lang:typescript`.
   - To initiate formatting you can use `shift` + `alt` + `F`.
   - Alternatively search for `editor.formatOnSave` inside the Settings UI and check the box and it will then format the file whenever you press Save or `ctrl` + `S`
+
+<div style="text-align: right"><a href="#contents">Top ⬆️</a></div>
 
 ## Files
 
@@ -134,18 +146,18 @@ The following rules have been implemented.
 
 ---
 ### `playwright.config.ts`
-[Documentation](https://playwright.dev/docs/test-configuration)
+#### [Documentation](https://playwright.dev/docs/test-configuration)
 
 ---
 ### `tsconfig.json`
-[Documentation](https://www.typescriptlang.org/tsconfig)
+#### [Documentation](https://www.typescriptlang.org/tsconfig)
 
 #### `baseUrl`
 Sets the base directory to resolve non-relative module names.\
 Defaults to `"."` (root folder).\
 DO NOT CHANGE UNLESS YOU KNOW WHAT YOU ARE DOING!!!
 
-#### `paths`
+#### `paths` (Path Alias)
 This allows you to simplify your imports in a `.ts` file, so instead of 
 ```js
 import Homepage from '../../pages/Homepage'
@@ -154,6 +166,8 @@ you can write
 ```js
 import Homepage from '@pages/Homepage'
 ```
+
+<div style="text-align: right"><a href="#contents">Top ⬆️</a></div>
 
 ## Folder Structure 
 
@@ -211,7 +225,7 @@ import Chkout from '@pages/Checkout.ts'
 
 If you create an `index.ts` inside the `pages` folder with the following:
 ```ts
-export { default as Account } from "./Account"; // If default export
+export { default as Account } from "./Account";  // If default export
 export { AccountOrders } from "./AccountOrders"; // If named export
 export { Chkout as Checkout } from "./Checkout"; // If alt named export
 ...
@@ -229,6 +243,31 @@ and then import `Account.ts`, `AccountOrders.ts` and `Checkout.ts` using
 import { Account, AccountOrders, Checkout } from '@pages'
 ```
 
+<div style="text-align: right"><a href="#contents">Top ⬆️</a></div>
+
+## Code Snippets
+
+There are two VSCode Code Snippets added to the project.
+
+`nfpw-com` - Scaffolds a new Component Object Model file.
+
+`nfpw-pom` - Scaffolds a new Page Object Model file.
+
+To use:
+  1. Create a new file in the folder
+  2. Save with the name of the class you want to use
+  3. Open the file
+  4. Start typing the code snippet
+  5. Press 'Enter' to use
+
+Once run, the curser will have selected the class name for easy editing. Pressing 'TAB' will move to the bottom of the class to start adding locators and methods
+
+<div style="text-align: right"><a href="#contents">Top ⬆️</a></div>
+
 ## Release Notes
 ### Version 1.0
- - Initial Release.
+ - Initial Release
+
+### Version 1.1
+- Added Code Snippets
+- Updated README instructions with extra links to documentation
