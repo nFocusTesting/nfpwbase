@@ -27,7 +27,7 @@ A repo to decide on informal standards for new Playwright projects created by nF
     - [`models`](#models)
     - [`pages`](#pages)
     - [`utils`](#utils)
-    - [`index.ts`](#indexts)
+    - [`index.ts` (Barrel imports)](#indexts-barrel-imports)
   - [Release Notes](#release-notes)
     - [Version 1.0](#version-10)
 
@@ -119,6 +119,7 @@ The following rules have been implemented.
 - `"@typescript-eslint/no-floating-promises": ["error"]`
 - `"@typescript-eslint/restrict-template-expressions": "off"`
 - `"@typescript-eslint/no-base-to-string": ["warn", { ignoredTypeNames: ["Locator", "Date"] }]`
+- `"@/no-restricted-exports": ["error", { "restrictDefaultExports": { "direct": true } }]`,
 
 ---
 ### `.prettier.config.js`
@@ -190,7 +191,7 @@ By default, this folder contains a basePage POM which is already in the `index.t
 **Somewhere to store extra files such as helper functions**
 
 ---
-### `index.ts`
+### `index.ts` (Barrel imports)
 Some of the folders (components, enums, models, and pages) contain an `index.ts` file. This can be used to simiplify imports into your `*.spec.ts` files. This section details how to use it.
 
 Say you have the following pages folder structure:
