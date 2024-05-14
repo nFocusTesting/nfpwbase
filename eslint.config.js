@@ -22,6 +22,7 @@ export default tseslint.config(
       globals: { ...globals.node },
     },
     rules: {
+      "@/no-restricted-exports": ["error", { "restrictDefaultExports": { "direct": true } }],
       "@typescript-eslint/no-floating-promises": ["error"],
       "@typescript-eslint/restrict-template-expressions": "off",
       "@typescript-eslint/no-base-to-string": [

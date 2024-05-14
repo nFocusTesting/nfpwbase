@@ -1,0 +1,1 @@
+export { base as baseComponent} from './base'
