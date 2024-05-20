@@ -51,7 +51,7 @@
 	"POM private element": {
     "scope": "typescript",
 		"prefix": "nfpw-ppri",
-		"body": "public ${1:property} = this.${2:page}.${3:locator}($4)",
+		"body": "private ${1:property} = this.${2:page}.${3:locator}($4)",
 	},
 	"COM public method": {
     "scope": "typescript",
@@ -84,7 +84,7 @@
     "scope": "typescript",
 		"prefix": "nfpw-ppri-met",
 		"body": [
-			"public ${1:method}(${2}){",
+			"private ${1:method}(${2}){",
 			"  ${3}",
 			"}",
 		]
