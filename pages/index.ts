@@ -1,0 +1,1 @@
+export { base as basePage} from './base'
