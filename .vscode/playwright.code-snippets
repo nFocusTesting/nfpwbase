@@ -1,36 +1,128 @@
 {
-  "Create a Component Object Model (COM)": {
+	"Create a Component Object Model (COM)": {
     "scope": "typescript",
-    "prefix": "nfpw-com",
-    "body": [
-      "import { baseComponent } from \"@components\";",
-      "import { Locator } from \"@playwright/test\";",
-      "",
-      "export class ${1:$TM_FILENAME_BASE} extends baseComponent {",
-      "  constructor(locator: Locator) {",
-      "    super(locator);",
-      "  }",
-      "",
-      "  $2",
-      "}"
-    ],
-    "description": "Create a new Playwright COM inside the current file"
-  },
-  "Create a Page Object Model (POM)": {
+		"prefix": "nfpw-com",
+		"body": [
+			"import { baseComponent } from \"@components\";",
+			"import { Locator } from \"@playwright/test\";",
+			"",
+			"export class ${1:$TM_FILENAME_BASE} extends baseComponent {",
+			"  constructor(locator: Locator) {",
+			"    super(locator);",
+			"  }",
+			"",
+			"  $2",
+			"}"
+		],
+		"description": "Create a new Playwright COM inside the current file"
+	},
+	"Create a Page Object Model (POM)": {
     "scope": "typescript",
-    "prefix": "nfpw-pom",
-    "body": [
-      "import { basePage } from \"@pages\";",
-      "import { Page } from \"@playwright/test\";",
-      "",
-      "export class ${1:$TM_FILENAME_BASE} extends basePage {",
-      "  constructor(page: Page) {",
-      "    super(page);",
-      "  }",
-      "",
-      "  $2",
-      "}"
-    ],
-    "description": "Create a new Playwright POM inside the current file"
-  }
+		"prefix": "nfpw-pom",
+		"body": [
+			"import { basePage } from \"@pages\";",
+			"import { Page } from \"@playwright/test\";",
+			"",
+			"export class ${1:$TM_FILENAME_BASE} extends basePage {",
+			"  constructor(page: Page) {",
+			"    super(page);",
+			"  }",
+			"",
+			"  $2",
+			"}"
+		],
+		"description": "Create a new Playwright POM inside the current file"
+	},
+	"COM public element": {
+    "scope": "typescript",
+		"prefix": "nfpw-cpub",
+		"body": "public ${1:property} = this.${2:container}.${3:locator}($4)",
+	},
+	"COM private element": {
+    "scope": "typescript",
+		"prefix": "nfpw-cpri",
+		"body": "private readonly ${1:property} = this.${2:container}.${3:locator}($4)",
+	},
+	"POM public element": {
+    "scope": "typescript",
+		"prefix": "nfpw-ppub",
+		"body": "public ${1:property} = this.${2:container}.${3:locator}($4)",
+	},
+	"POM private element": {
+    "scope": "typescript",
+		"prefix": "nfpw-ppri",
+		"body": "public ${1:property} = this.${2:container}.${3:locator}($4)",
+	},
+	"COM public method": {
+    "scope": "typescript",
+		"prefix": "nfpw-cpub-met",
+		"body": [
+			"public ${1:method}(${2}){",
+			"  ${3}",
+			"}",
+		]
+	},
+	"COM private method": {
+    "scope": "typescript",
+		"prefix": "nfpw-cpri-met",
+		"body": [
+			"private readonly ${1:method}(${2}){",
+			"  ${3}",
+			"}",
+		]
+	},
+	"POM public method": {
+    "scope": "typescript",
+		"prefix": "nfpw-ppub-met",
+		"body": [
+			"public ${1:method}(${2}){",
+			"  ${3}",
+			"}",
+		]
+	},
+	"POM private method": {
+    "scope": "typescript",
+		"prefix": "nfpw-ppri-met",
+		"body": [
+			"public ${1:method}(${2}){",
+			"  ${3}",
+			"}",
+		]
+	},
+	"COM public async method": {
+    "scope": "typescript",
+		"prefix": "nfpw-cpub-amet",
+		"body": [
+			"publicasync  ${1:method}(${2}){",
+			"  ${3}",
+			"}",
+		]
+	},
+	"COM private async method": {
+    "scope": "typescript",
+		"prefix": "nfpw-cpri-amet",
+		"body": [
+			"privateasync  readonly ${1:method}(${2}){",
+			"  ${3}",
+			"}",
+		]
+	},
+	"POM public async method": {
+    "scope": "typescript",
+		"prefix": "nfpw-ppub-amet",
+		"body": [
+			"publicasync  ${1:method}(${2}){",
+			"  ${3}",
+			"}",
+		]
+	},
+	"POM private async method": {
+    "scope": "typescript",
+		"prefix": "nfpw-ppri-amet",
+		"body": [
+			"public async ${1:method}(${2}){",
+			"  ${3}",
+			"}",
+		]
+	}
 }

@@ -247,11 +247,11 @@ import { Account, AccountOrders, Checkout } from '@pages'
 
 ## Code Snippets
 
-There are two VSCode Code Snippets added to the project.
+There are several VSCode Code Snippets added to the project.
 
-`nfpw-com` - Scaffolds a new Component Object Model file.
-
-`nfpw-pom` - Scaffolds a new Page Object Model file.
+ - Scaffolding snippets
+   - `nfpw-com` - Scaffolds a new Component Object Model file.
+   - `nfpw-pom` - Scaffolds a new Page Object Model file.
 
 To use:
   1. Create a new file in the folder
@@ -262,6 +262,24 @@ To use:
 
 Once run, the curser will have selected the class name for easy editing. Pressing 'TAB' will move to the bottom of the class to start adding locators and methods
 
+- Other snippets
+   - `nfpw-cpub` - Create a public property in a COM
+   - `nfpw-cpri` - Create a private property in a COM
+   - `nfpw-cpub-met` - Create a public method in a COM
+   - `nfpw-cpri-met` - Create a private method in a COM
+   - `nfpw-cpub-amet` - Create a public async method in a COM
+   - `nfpw-cpri-amet` - Create a private async method in a COM
+   - `nfpw-ppub` - Create a public property in a POM
+   - `nfpw-ppri` - Create a private property in a POM
+   - `nfpw-ppub-met` - Create a public method in a POM
+   - `nfpw-ppri-met` - Create a private method in a POM
+   - `nfpw-ppub-amet` - Create a public async method in a POM
+   - `nfpw-ppri-amet` - Create a private async method in a POM
+  
+Properties default to using `this.page.locator` for POMs and `this.container.locator` in COMs, provided by their respective base classes. TABbing through starts with the property name, then `page`/`container`, then locator strategy, and finally that locater itself.
+
+Tabbing through methods start with the method name, then the arguments, then the body of the method.
+
 <div style="text-align: right"><a href="#contents">Top ⬆️</a></div>
 
 ## Release Notes
@@ -269,5 +287,5 @@ Once run, the curser will have selected the class name for easy editing. Pressin
  - Initial Release
 
 ### Version 1.1
-- Added Code Snippets
+- Added [Code Snippets](#code-snippets)
 - Updated README instructions with extra links to documentation
