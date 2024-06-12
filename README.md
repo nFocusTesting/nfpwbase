@@ -34,6 +34,7 @@ A repo to decide on informal standards for new Playwright projects created by nF
   - [Release Notes](#release-notes)
     - [Version 1.0](#version-10)
     - [Version 1.1](#version-11)
+    - [Version 1.2](#version-12)
 
 
 <div style="text-align: right"><a href="#contents">Top ⬆️</a></div>
@@ -262,7 +263,7 @@ To use:
 
 Once run, the curser will have selected the class name for easy editing. Pressing 'TAB' will move to the bottom of the class to start adding locators and methods
 
-- Other snippets
+- Property/Method helper snippets
    - `nfpw-cpub` - Create a public property in a COM
    - `nfpw-cpri` - Create a private property in a COM
    - `nfpw-cpub-met` - Create a public method in a COM
@@ -280,6 +281,11 @@ Properties default to using `this.page.locator` for POMs and `this.container.loc
 
 Tabbing through methods start with the method name, then the arguments, then the body of the method.
 
+ - Test snippets
+   - `nftest` - Creates new test at cursor
+   - `nftest-full` - Scaffolds new `*.spec.ts` file
+   - `nftestexpect-full` - Same as `nftest-full` plus imports `expect` from `@fixtures/combined`
+
 <div style="text-align: right"><a href="#contents">Top ⬆️</a></div>
 
 ## Release Notes
@@ -289,3 +295,6 @@ Tabbing through methods start with the method name, then the arguments, then the
 ### Version 1.1
 - Added [Code Snippets](#code-snippets)
 - Updated README instructions with extra links to documentation
+
+### Version 1.2
+- Added Test snippets to [Code Snippets](#code-snippets)
